@@ -1,0 +1,143 @@
+body , html{
+	margin:0;
+	height: 100%;
+	line-height:180% 
+	color:#666;
+	text-align: center;
+}
+.parallax1{
+	background:url("myself.jpg");
+	min-height: 100%;
+	position: relative;
+	opacity: .75;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed; 
+}
+.parallax2{
+	background:url(img2.jpg);
+	min-height: 60%;
+	position: relative;
+	opacity: .75;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed; 
+}
+.parallax3{
+	background:url(img3.jpg);
+	min-height: 40%;
+	position: relative;
+	opacity: .75;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed; 
+}
+.parallax4{
+	background:url(hello2.jpg);
+	min-height: 100%;
+	position: relative;
+	opacity: .75;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment:fixed; 
+}
+.heading{
+	position: absolute;
+	color: #fff;
+	font-size: 550%;
+	top: 38%;
+	width: 100%;
+	text-transform: uppercase;
+	letter-spacing: 8px;
+	text-shadow: 0 0 20px #000;
+	left: 20%;
+}
+.quote{
+	position: absolute;
+	color: #fff;
+	font-size: 180%;
+	top: 60%;
+	width: 100%;
+	text-transform: uppercase;
+	letter-spacing: 8px;
+	text-shadow: 0 0 20px #000;
+	left: 30%;
+}
+.quote::before{
+	content: open-quote;
+	display: inline-block;
+	color:red;
+	font-size: 2em;
+	text-shadow: 0 0 20px #000;
+}
+.quote::after{
+	content: close-quote;
+	display: inline-block;
+	font-size: 2em;
+	color:red;
+	text-shadow: 0 0 20px #000;
+}
+
+.heading-sm{
+	position: absolute;
+	top:45%;
+	width: 100%;
+	color: #fff;
+	font-size:250%;
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	text-shadow: 0 0 10px #000;
+	left: 20%;
+}
+.two-col{
+	float: left;
+	width:42%;
+	padding: 0 4%;
+	text-align:left; 
+}
+section{
+	overflow: auto;
+	padding: 50px 80px;
+}
+.head{
+	position: fixed;
+	top: 5%;
+	width: 100%;
+	opacity:1;
+}
+.abc{
+	text-align: center;
+	font-size: 10%;
+}
+.dark{
+	overflow: auto;
+	padding: 50px 80px;
+	background-color:#323232;
+	color:#f2f2f2; 
+}
+.bg{
+	background-color: orange;
+}
+
+@media (max-width: 768px){
+	.heading{
+		font-size: 250%;
+	}
+	.quote{
+		font-size: 45%;
+		left:10%;
+	}
+	.heading-sm{
+		font-size: 180%;
+		left:2%;
+	}
+	.two-col{
+		width:100%;
+		padding:0;
+		text-align: center;
+	}
+}
