@@ -1,153 +1,3 @@
-body , html{
-	margin:0;
-	height: 100%;
-	line-height:180% 
-	color:#666;
-	text-align: center;
-}
-.parallax1{
-	background:url("myself.jpg");
-	min-height: 100%;
-	position: relative;
-	opacity: .75;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment:fixed; 
-}
-.parallax2{
-	background:url(img2.jpg);
-	min-height: 60%;
-	position: relative;
-	opacity: .75;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment:fixed; 
-}
-.parallax3{
-	background:url(img_projects.jpg);
-	min-height: 70%;
-	position: relative;
-	opacity: .75;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment:fixed; 
-}
-.parallax4{
-	background:url(hello2.jpg);
-	min-height: 100%;
-	position: relative;
-	opacity: .75;
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-attachment:fixed; 
-}
-.heading{
-	position: absolute;
-	color: #fff;
-	font-size: 550%;
-	top: 38%;
-	width: 100%;
-	text-transform: uppercase;
-	letter-spacing: 8px;
-	text-shadow: 0 0 10px #000;
-	text-align: center;
-}
-.quote{
-	position: absolute;
-	color: #fff;
-	white-space: nowrap;
-	font-size: 120%;
-	top: 60%;
-	width: 100%;
-	text-transform: uppercase;
-	letter-spacing: 8px;
-	text-shadow: 0 0 20px #000;
-	text-align: center;
-}
-.quote::before{
-	content: open-quote;
-	display: inline-block;
-	white-space: nowrap;
-	color:red;
-	font-size: 2em;
-	text-shadow: 0 0 20px #000;
-}
-.quote::after{
-	content: close-quote;
-	white-space: nowrap;
-	display: inline-block;
-	font-size: 2em;
-	color:red;
-	text-shadow: 0 0 20px #000;
-}
-.sub-headdings{
-	font-size: 260%;
-	font-weight: 2;
-	text-align: center;
-}
-.heading-sm{
-	position: absolute;
-	top:45%;
-	width: 100%;
-	color: #fff;
-	font-size:250%;
-	text-transform: uppercase;
-	letter-spacing: 5px;
-	text-shadow: 0 0 10px #000;
-	text-align: center;
-}
-.nav-link{
-	font-size: 30px;
-}
-.two-col{
-	float: left;
-	width:95%;
-	padding: 0 4%;
-	text-align:left; 
-	font-size: 150%;
-}
-.projects{
-	position: absolute;
-	color: #000;
-	font-size: 220%;
-	top: 38%;
-	width: 100%;
-	text-transform: uppercase;
-	letter-spacing: 8px;
-	text-shadow: 0 0 20px #000;
-	text-align: center;
-}
-section{
-	overflow: auto;
-	padding: 50px 80px;
-}
-.head{
-	position: fixed;
-	top: 5%;
-	width: 100%;
-	opacity:1;
-	z-index: 10;
-	opacity: 0.7;
-}
-.abc{
-	text-align: center;
-	font-size: 150%;
-}
-.dark{
-	overflow: auto;
-	padding: 50px 80px;
-	background-color:#323232;
-	color:#f2f2f2; 
-}
-.bg{
-	background-color: orange;
-}
-
-@media (max-width: 768px){
 	body , html{
 		margin:0;
 		height: 100%;
@@ -155,36 +5,199 @@ section{
 		color:#666;
 		text-align: center;
 	}
-	.projects{
-		font-size: 150%;
+	.parallax1{
+		background:url("myself.jpg");
+		min-height: 100%;
+		position: relative;
+		opacity: .75;
 		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment:fixed; 
+	}
+	.parallax2{
+		background:url(professional_life.jpg);
+		min-height: 60%;
+		position: relative;
+		opacity: .75;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment:fixed; 
+	}
+	.parallax3{
+		background:url(img_projects.jpg);
+		min-height: 70%;
+		position: relative;
+		opacity: .75;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment:fixed; 
+	}
+	.parallax4{
+		background:url(hello2.jpg);
+		min-height: 100%;
+		position: relative;
+		opacity: .75;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-attachment:fixed; 
 	}
 	.heading{
-		font-size: 250%;
+		position: absolute;
+		color: #fff;
+		font-size: 550%;
+		top: 38%;
+		width: 100%;
+		text-transform: uppercase;
+		letter-spacing: 8px;
+		text-shadow: 0 0 10px #000;
 		text-align: center;
 	}
 	.quote{
-		font-size: 45%;
-		left:10%;
+		position: absolute;
+		color: #fff;
+		white-space: nowrap;
+		font-size: 120%;
+		top: 60%;
+		width: 100%;
+		text-transform: uppercase;
+		letter-spacing: 8px;
+		text-shadow: 0 0 20px #000;
+		text-align: center;
 	}
-	.quote h1{
-		font-size: 1.0rem;
+	.quote::before{
+		content: open-quote;
+		display: inline-block;
+		white-space: nowrap;
+		color:red;
+		font-size: 2em;
+		text-shadow: 0 0 20px #000;
+	}
+	.quote::after{
+		content: close-quote;
+		white-space: nowrap;
+		display: inline-block;
+		font-size: 2em;
+		color:red;
+		text-shadow: 0 0 20px #000;
+	}
+	.sub-headdings{
+		font-size: 260%;
+		font-weight: 2;
+		text-align: center;
 	}
 	.heading-sm{
-		font-size: 180%;
-		left:2%;
+		position: absolute;
+		top:45%;
+		width: 100%;
+		color: #fff;
+		font-size:250%;
+		text-transform: uppercase;
+		letter-spacing: 5px;
+		text-shadow: 0 0 10px #000;
+		text-align: center;
+	}
+	.nav-link{
+		font-size: 30px;
 	}
 	.two-col{
-		width:100%;
-		padding:0;
+		float: left;
+		width:95%;
+		padding: 0 4%;
+		text-align:left; 
+		font-size: 150%;
+	}
+	.projects{
+		position: absolute;
+		color: #000;
+		font-size: 220%;
+		top: 38%;
+		width: 100%;
+		text-transform: uppercase;
+		letter-spacing: 8px;
+		text-shadow: 0 0 20px #000;
 		text-align: center;
+		font-size: 50px;
+	}
+	#Projects{
+		font-family: Dancing Script;
+	}
+	#Professional-life{
+		font-family: Shadows Into Light;
+	}
+	section{
+		overflow: auto;
+		padding: 50px 80px;
 	}
 	.head{
 		position: fixed;
 		top: 5%;
-		width: 90%;
+		width: 100%;
 		opacity:1;
 		z-index: 10;
-		width: 91%;
+		opacity: 0.7;
 	}
-}
+	.abc{
+		text-align: center;
+		font-size: 150%;
+	}
+	#About-Me{
+		font-family: Shadows Into Light;
+	}
+	#social{
+		font-family: Caveat;
+	}
+	.dark{
+		overflow: auto;
+		padding: 50px 80px;
+		background-color:#fff;
+		color:#000; 
+	}
+	.bg{
+		background-color: orange;
+	}
+
+	@media (max-width: 768px){
+		body , html{
+			margin:0;
+			height: 100%;
+			line-height:180% 
+			color:#666;
+			text-align: center;
+		}
+		.projects{
+			font-size: 150%;
+			background-size: cover;
+		}
+		.heading{
+			font-size: 250%;
+			text-align: center;
+		}
+		.quote{
+			font-size: 45%;
+			left:10%;
+		}
+		.quote h1{
+			font-size: 1.0rem;
+		}
+		.heading-sm{
+			font-size: 180%;
+			left:2%;
+		}
+		.two-col{
+			width:100%;
+			padding:0;
+			text-align: center;
+		}
+		.head{
+			position: fixed;
+			top: 5%;
+			width: 90%;
+			opacity:1;
+			z-index: 10;
+			width: 91%;
+		}
+	}
