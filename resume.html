@@ -1,114 +1,242 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
-	<title>resume</title>
-	<link rel="stylesheet" type="text/css" href="style1.css">
-	 <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=ABeeZee|Shadows+Into+Light&display=swap" rel="stylesheet">
+  <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1.0">
+      <title>resume</title>
+      <link rel="stylesheet" type="text/css" href="style1.css">
+       <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=ABeeZee|Shadows+Into+Light&display=swap" rel="stylesheet">
+    
+      <link href="https://fonts.googleapis.com/css?family=Inconsolata|Shadows+Into+Light&display=swap" rel="stylesheet">
+    
+      <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+    
+      <link rel="stylesheet" type="text/css" href="bootstrap.css">
+    
+      <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+    
+      <link href="https://fonts.googleapis.com/css?family=Acme|Courgette&display=swap" rel="stylesheet">
+    
+      <link href="https://fonts.googleapis.com/css?family=Caveat|Dancing+Script|Kaushan+Script|Pacifico&display=swap" rel="stylesheet">
+    
+      <link href="https://fonts.googleapis.com/css?family=Caveat|Dancing+Script|Handlee|Kaushan+Script|Pacifico&display=swap" rel="stylesheet">
 
-	<link href="https://fonts.googleapis.com/css?family=Inconsolata|Shadows+Into+Light&display=swap" rel="stylesheet">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.3.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.3.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.3.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.3.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.3.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
 
-	<link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
+    <style media="screen">
+      body { background: #ECEFF1; color: rgba(0,0,0,0.87); font-family: Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+      #message { background: white; max-width: 360px; margin: 100px auto 16px; padding: 32px 24px; border-radius: 3px; }
+      #message h2 { color: #ffa100; font-weight: bold; font-size: 16px; margin: 0 0 8px; }
+      #message h1 { font-size: 22px; font-weight: 300; color: rgba(0,0,0,0.6); margin: 0 0 16px;}
+      #message p { line-height: 140%; margin: 16px 0 24px; font-size: 14px; }
+      #message a { display: block; text-align: center; background: #039be5; text-transform: uppercase; text-decoration: none; color: white; padding: 16px; border-radius: 4px; }
+      #message, #message a { box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); }
+      #load { color: rgba(0,0,0,0.4); text-align: center; font-size: 13px; }
+      @media (max-width: 600px) {
+        body, #message { margin-top: 0; background: white; box-shadow: none; }
+        body { border-top: 16px solid #ffa100; }
+      }
+    </style>
+  </head>
+  <body>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+      </script>
+  
+     <header class="head">
+        <div class="head1">
+          <nav class="navbar navbar-expand-lg navbar-light bg">
+          <div class="container">
+          <a class="navbar-brand" href="#">Vedha Krishna</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+  
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-lg-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#About-Me">About Me<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Professional-life">Professional life</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Achivements">Achivements</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#Projects">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#timeline">Timeline</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        </nav>
+        </div>
+      </header>
+    <div class="parallax1">
+      <div class="heading">
+        Vedha Krishna
+      </div>
+      <div class="quote">
+        <h1>Believe in yourself</h1>
+      </div>
+    </div>
+    <section>
+      <h1 class="sub-headdings" id="About-Me">About Me</h1>
+      <div class="two-col">
+        <p>I was born in India in 2001 and since my childhood i was more intrested to know about <b><span class="a">electronic gadgets and mechanics</span></b> and used to do some crazy things with tv remote and tried to make a geyser out of two rods and many more which belong to my bag of crazy things . finally i was in the <b><span class="a">electronics engineering</span></b>.Now i am very happy to persuate my lovely subject in <b><span class="a">Amrita Viswa Vidyapeetham</span></b>.</p>
+      </div>
+      <div class="two-col">
+        <p></p>
+      </div>
+    </section>
+    <div class="parallax2">
+      <div class="heading-sm" id="social">
+        social account links
+      </div>
+    </div>
+    <section class="dark">
+      <div class="two-col abc">
+      <h1 class="sub-headdings" id="Professional-life">My Professional Life</h1>
+      <p>	I have been attending many workshops in the field of <b><span>Computer science and Electronics </span></b>conducted by our college.Some of the Electronic Workshops are
+                <b><span>Winter camp and Fire fighting robot</span></b>
+              Some of the computer science workshops are
+              <b><span>Cyber Security and Full stack Web development.</span></b><br>Languages Known :<b><span> c ,c++,Javascript.</span></b><br>
+                Worked on projects: <b><span> Telegram bots , smart farming using arduino.
+              </span></b></p>
+              </div>
+      <div class="two-col">
+        <p></p>
+      </div>
+    </section>
+    <div class="parallax3">
+      <div class="projects">
+        projects
+      </div>
+    </div>
+    <div class="dark">
+      <h1 class="sub-headdings"id="Projects">My Projects</h1>
+      <p>
+        ;dfkbVLSKF'vsljdfffffbv;aiud;iug;sifv;alyuevwiuar;fcuhbage;wiuf8u
+      </p>
+    </div>
 
-	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+    <div class="parallax4">
+      
+    </div>
+    <!-- <section>
+      <div class="container">
+        <div class="title text-center">
+          <h2 id="#timeline">Vertical Timeline</h2>
+        </div>
+        <div class="timeline">
+          <ul>
+            <li>
+                <div class="content">
+                  <h3>sdlvb;asdovb</h3>
+                  <p>
+                    sdlvkb;aldjfbvaoudfv' SDVILSIUDVC ksduvc
+                  </p>
+                </div>
+                <div class="time">
+                  27 th november 2019
+                </div>
+            </li>
 
-	<link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+            <li>
+                <div class="content">
+                  <h3>sdlvb;asdovb</h3>
+                  <p>
+                    sdlvkb;aldjfbvaoudfv' SDVILSIUDVC ksduvc
+                  </p>
+                </div>
+                <div class="time">
+                  27 th november 2019
+                </div>
 
-	<link href="https://fonts.googleapis.com/css?family=Acme|Courgette&display=swap" rel="stylesheet">
+                <li>
+                <div class="content">
+                  <h3>sdlvb;asdovb</h3>
+                  <p>
+                    sdlvkb;aldjfbvaoudfv' SDVILSIUDVC ksduvc
+                  </p>
+                </div>
+                <div class="time">
+                  27 th november 2019
+                </div>
+            </li>
 
-	<link href="https://fonts.googleapis.com/css?family=Caveat|Dancing+Script|Kaushan+Script|Pacifico&display=swap" rel="stylesheet">
+             <li>
+                <div class="content">
+                  <h3>sdlvb;asdovb</h3>
+                  <p>
+                    sdlvkb;aldjfbvaoudfv' SDVILSIUDVC ksduvc
+                  </p>
+                </div>
+                <div class="time">
+                  27 th november 2019
+                </div>
 
-	<link href="https://fonts.googleapis.com/css?family=Caveat|Dancing+Script|Handlee|Kaushan+Script|Pacifico&display=swap" rel="stylesheet">
-</head>
-<body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-		</script>
+                <li>
+                <div class="content">
+                  <h3>sdlvb;asdovb</h3>
+                  <p>
+                    sdlvkb;aldjfbvaoudfv' SDVILSIUDVC ksduvc
+                  </p>
+                </div>
+                <div class="time">
+                  27 th november 2019
+                </div>
+            </li> 
+          </ul>
+        </div>
+      </div>
+    </section> -->
+  
+  
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.3.0/firebase-app.js"></script>
+  
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.3.0/firebase-analytics.js"></script>
+  
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+        // // The Firebase SDK is initialized and available here!
+        //
+        // firebase.auth().onAuthStateChanged(user => { });
+        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
+        // firebase.messaging().requestPermission().then(() => { });
+        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
+        //
+        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
 
-	 <header class="head">
-			<div class="head1">
-				<nav class="navbar navbar-expand-lg navbar-light bg">
-				<div class="container">
-			  <a class="navbar-brand" href="#">Vedha Krishna</a>
-			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			    <span class="navbar-toggler-icon"></span>
-			  </button>
-
-			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-			    <ul class="navbar-nav ml-lg-auto">
-			      <li class="nav-item active">
-			        <a class="nav-link" href="#About-Me">About Me<span class="sr-only">(current)</span></a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="#Professional-life">Professional life</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="#Achivements">Achivements</a>
-			      </li>
-			      <li class="nav-item">
-			        <a class="nav-link" href="#Projects">Projects</a>
-			      </li>
-			    </ul>
-			  </div>
-			</div>
-			</nav>
-			</div>
-		</header>
-	<div class="parallax1">
-		<div class="heading">
-			Vedha Krishna
-		</div>
-		<div class="quote">
-			<h1>Believe in yourself</h1>
-		</div>
-	</div>
-	<section>
-		<h1 class="sub-headdings" id="About-Me">About Me</h1>
-		<div class="two-col">
-			<p>I was born in India in 2001 and since my childhood i was more intrested to know about <b><span class="a">electronic gadgets and mechanics</span></b> and used to do some crazy things with tv remote and tried to make a geyser out of two rods and many more which belong to my bag of crazy things . finally i was in the <b><span class="a">electronics engineering</span></b>.Now i am very happy to persuate my lovely subject in <b><span class="a">Amrita Viswa Vidyapeetham</span></b>.</p>
-		</div>
-		<div class="two-col">
-			<p></p>
-		</div>
-	</section>
-	<div class="parallax2">
-		<div class="heading-sm" id="social">
-			social account links
-		</div>
-	</div>
-	<section class="dark">
-		<div class="two-col abc">
-		<h1 class="sub-headdings" id="Professional-life">My Professional Life</h1>
-		<p>	I have been attending many workshops in the field of <b><span>Computer science and Electronics </span></b>conducted by our college.Some of the Electronic Workshops are
-							<b><span>Winter camp and Fire fighting robot</span></b>
-						Some of the computer science workshops are
-						<b><span>Cyber Security and Full stack Web development.</span></b><br>Languages Known :<b><span> c ,c++,Javascript.</span></b><br>
-							Worked on projects: <b><span> Telegram bots , smart farming using arduino.
-						</span></b></p>
-						</div>
-		<div class="two-col">
-			<p></p>
-		</div>
-	</section>
-	<div class="parallax3">
-		<div class="projects">
-			projects
-		</div>
-	</div>
-	<div class="dark">
-		<h1 class="sub-headdings"id="Projects">My Projects</h1>
-		<p>
-			;dfkbVLSKF'vsljdfffffbv;aiud;iug;sifv;alyuevwiuar;fcuhbage;wiuf8u
-		</p>
-	</div>
-
-
-	<div class="parallax4">
-		
-	</div>
-</body>
-</html>	
+        try {
+          let app = firebase.app();
+          let features = ['auth', 'database', 'messaging', 'storage'].filter(feature => typeof app[feature] === 'function');
+          document.getElementById('load').innerHTML = `Firebase SDK loaded with ${features.join(', ')}`;
+        } catch (e) {
+          console.error(e);
+          document.getElementById('load').innerHTML = 'Error loading the Firebase SDK, check the console.';
+        }
+      });
+    </script>
+  </body>
+</html>
