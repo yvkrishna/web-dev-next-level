@@ -103,6 +103,12 @@
 		.abc{
 			margin-left: 100px;
 		}
+		#having{
+			font-size: 17px;
+		    color: tomato;
+		    margin-left: 17%;
+		    margin-top: 15px;
+		}
 		@media screen and(max-width: 1050px)
 		{
 			.container{
@@ -134,6 +140,9 @@
 			.wel{
 				margin-left: 42px;
 			}
+			.b{
+				margin-left: 125px;
+			}
 		}
 	</style>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -144,29 +153,68 @@
 			<img src="project.svg">
 		</div>
 		<div class="login-container">
-			<form action="index.html">
+			<form action="login-done" id="login" method="GET">
 				<img class="abc" src="user.svg">
 				<h2 class="wel">Welcome</h2>
 				<div class="input">
 					<div class="inp one focus">
 						<div>
 							<h5>Username</h5>
-							<input class="uname" type="text" placeholder="Username">
+							<input class="uname" type="text" placeholder="Username" name="username">
 						</div>
 					</div>
 					<div class="inp two focus">
 						<div>
 							<h5>Password</h5>
 							<input  class="uname" type="password" 
-							placeholder="Password">
+							placeholder="Password" name="password">
 						</div>
 					</div>
 					<a href="#">Forgot Password ?</a>
 					<br>
-					<input type="submit" class="btns btn btn-outline-success" value="login">
+					<input type="submit" class="btns btn btn-outline-success" value="login" style="width: 26%;">
+					<br>
+					<h5 id="having">Aldready Have An Account ?</h5>
+				<button type="button" class="btn b btns btn-outline-primary">
+						<a href="register" class="signup">Sign Up</a>
+					</button>
 				</div>
 			</form>
 		</div>
 	</div>
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDdC-Olg4DqLrAQSEyJnXhjpZb9t78pMag",
+    authDomain: "hutlabs-c18a0.firebaseapp.com",
+    databaseURL: "https://hutlabs-c18a0.firebaseio.com",
+    projectId: "hutlabs-c18a0",
+    storageBucket: "hutlabs-c18a0.appspot.com",
+    messagingSenderId: "874302797290",
+    appId: "1:874302797290:web:cb833d62bc90737a5bee93",
+    measurementId: "G-FFM9CDXWNZ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth=firebase.auth();
+  const db = firebase.firestore();
+  db.settings({ timestampsInSnapshots:true })
+   
+</script>
+<script src="authenticate.js"></script>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.4.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.4.0/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+
 </body>
 </html>
