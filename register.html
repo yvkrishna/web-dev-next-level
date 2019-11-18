@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body{
+			font-family: 'Poppins', sans-serif;
+		}
+		.container{
+			width: 100vw;
+			height: 100vh;
+			display: grid;
+			grid-template-columns:repeat(2,1fr);
+			grid-gap: 7rem;
+			padding: 0 2rem
+		}
+		.img img{
+			width: 500px;
+		}
+		.abc{
+			width: 100px;		
+		}
+		.img{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.login-container{
+			display: flex;
+			text-align: : center;
+			align-items: center;
+		}
+		form{
+			width: 360px;
+		}
+		form h2{
+			font-size: 2.9rem;
+			text-transform: uppercase;
+			margin: 15px 0;
+			color: #333;
+		}
+		.inp{
+			display: grid;
+			grid-template-columns: 7% 93%;
+			margin: 25px 0;
+			padding: 5px 0;
+			border-bottom: 2px solid #d9d9d9; 	
+		}
+		.inp.one{
+			margin-top: 0;
+		}
+		.inp.two{
+			margin-bottom: 4px;
+		}
+		.inp > div{
+			position: relative;
+			height: 45px;
+		}
+		.inp >div h5{
+			position: absolute;
+			left: 10px;
+			top: 50%;
+			transform: translateY(-50%);
+			color: #999;
+			font-size: 18px;
+			display: none;
+			transition: .3s;
+		} 
+		.uname{
+			padding-left: 91px;
+    		border-radius: 23px;
+    		border: 2px solid limegreen;
+    		padding-top: 5px;
+   			padding-bottom: 7px;
+		}
+		.btns{
+			margin-left: 120px;
+		}
+		a{
+			display: block;
+			text-align: right;
+			text-decoration: none;
+			color:#999;
+			font-size: 0.9rem;
+			transition: 0.3s;
+		}
+		a:hover{
+			color:#38d39f;
+		}
+		.inp.focus	div h5{
+			top: -5%;
+			font-size: 15px;
+		}
+		.uname:focus{
+			outline-width: 0;
+		}
+		.abc{
+			margin-left: 100px;
+		}
+		#having{
+			font-size: 17px;
+			color: tomato;
+			margin-left: 17%;
+			margin-top: 15px;
+		}
+		@media screen and(max-width: 1050px)
+		{
+			.container{
+				grid-gap: 5rem;
+			}
+		}
+		@media screen and (max-width: 1000px){
+			form{
+				width:290px;
+			}
+			form h2{
+				font-size: 2.4rem;
+				margin: 8px 0;
+			}
+			.img img{
+				width: 400px;
+			}
+		}
+		@media screen and (max-width: 900px){
+			.img{
+				display: none;
+			}
+			.container{
+				grid-template-columns: 1fr;
+			}
+			.login-container{
+				justify-content: center;
+			}
+			.wel{
+				margin-left: 42px;
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="img">
+			<img src="project.svg">
+		</div>
+		<div class="login-container">
+			<form action="register-done" id="login" method="GET">
+				<img class="abc" src="user.svg">
+				<h2 class="wel">Welcome</h2>
+				<div class="input">
+					<div class="inp one focus">
+						<div>
+							<h5>First Name</h5>
+							<input class="uname" type="text" placeholder="First Name" name="fname">
+						</div>
+					</div>
+					<div class="inp one focus">
+						<div>
+							<h5>Last Name</h5>
+							<input class="uname" type="text" placeholder="Last Name" name="lname">
+						</div>
+					</div>
+					<div class="inp one focus">
+						<div>
+							<h5>Username</h5>
+							<input class="uname" type="text" placeholder="Username" name="username">
+						</div>
+					</div>
+					<div class="inp two focus">
+						<div>
+							<h5>Password</h5>
+							<input  class="uname" type="password" placeholder="Password" name="password_1">
+						</div>
+					</div>
+					<div class="inp three focus">
+						<div>
+							<h5>Retype-Password</h5>
+							<input class="uname" type="password" placeholder="Retype-password" name="password_2">
+						</div>
+					</div>
+					<div class="inp four focus">
+						<div>
+							<h5>Mobile Number</h5>
+							<input  class="uname" type="number" placeholder="number" name="number">
+						</div>
+					</div>
+					<br>
+					<input type="submit" class="btns btn btn-outline-success" value="register"  style="width: 26%;">
+					<br>
+					<h5 id="having">Don't Have An Account ?</h5>
+				<button type="button" class="btn btns btn-outline-primary">
+						<a href="login" class="signup">Sign In</a>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDdC-Olg4DqLrAQSEyJnXhjpZb9t78pMag",
+    authDomain: "hutlabs-c18a0.firebaseapp.com",
+    databaseURL: "https://hutlabs-c18a0.firebaseio.com",
+    projectId: "hutlabs-c18a0",
+    storageBucket: "hutlabs-c18a0.appspot.com",
+    messagingSenderId: "874302797290",
+    appId: "1:874302797290:web:cb833d62bc90737a5bee93",
+    measurementId: "G-FFM9CDXWNZ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const auth=firebase.auth();
+  const db = firebase.firestore();
+  db.settings({ timestampsInSnapshots:true })
+   
+</script>
+<script src="authenticate.js"></script>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="/__/firebase/7.4.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="/__/firebase/7.4.0/firebase-analytics.js"></script>
+
+<!-- Initialize Firebase -->
+<script src="/__/firebase/init.js"></script>
+
+</body>
+</html>
