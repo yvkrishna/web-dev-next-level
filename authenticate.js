@@ -90,6 +90,8 @@ app.get("/register-done/",function(req,res)
 	
 });
 
+// login-done and register-done takes the data and  validate them
+
 app.listen(4000,function()
 {
 	console.log("SERVER STARTED SUCCESSFULLY................")
