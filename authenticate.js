@@ -3,6 +3,8 @@ var db = mongojs("mongodb://vedha:krishna123@cluster0-shard-00-00-kbuhh.mongodb.
 var express=require("express");
 var app = express();
 
+// This initially sends login or register page and with the filled data from form user gets authenticate to the dashboard
+
 app.use(express.static("templates"));
 app.get("/login",function(req,res)
 {
