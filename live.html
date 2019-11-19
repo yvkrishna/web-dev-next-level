@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		body{
+			margin:0;
+			padding: 0;
+			width:100vw;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	</style>
+</head>
+<body>
+<video id="video" width="720px" height="560px" autoplay
+ muted></video>
+
+ <script defer>
+	const video = document.getElementById('video');
+
+	function webcam(){
+		navigator.getUserMedia(
+			{ video: {} },
+			stream => video.srcObject = stream,
+			err => console.log(err+'lost')
+			);
+		}
+		webcam()
+</script>
+</body>
+</html>
