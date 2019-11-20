@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Info</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Web Page</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/dacf88b734.js" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Dosis|Tomorrow&display=swap" rel="stylesheet">
+	<style>
+		body,html{
+			height: 100%;
+			width: 100%;
+			padding: 0;
+			margin:0; 
+		}
+		.purple{
+			background: linear-gradient(to right, rgb(0, 92, 151), rgb(54, 55, 149));
+			width: 100%;
+   			height: 702px;
+   			position: relative;
+		}
+		.my-profle{
+			position: absolute;
+		    z-index: 20;
+		    border-radius: 34%;
+		    width: 22%;
+		    margin-left: 36%;
+		    margin-top: 32%;
+		}
+		.name{
+			color: #fff;
+			font-size: 28px;
+		    position: absolute;
+		    top: 15%;
+		    left: 55%;
+			font-family: 'Tomorrow', sans-serif; 
+			font-weight: bold;
+		}
+		.personal{
+			position: absolute;
+			top: 46%;
+			left: 55%;
+			color:#fff;
+			font-family: 'Dosis', sans-serif;
+			font-weight: bold;
+			z-index: 10;
+		}
+		.done-projects{
+			position: absolute;
+			top: 65%;
+			left: 55%;
+			color:#fff;
+			font-family: 'Dosis', sans-serif;
+			font-weight: bold;
+			z-index: 10;
+		}
+		.professional{
+			position: absolute;
+			top: 83%;
+			left: 55%;
+			color:#fff;
+			font-family: 'Dosis', sans-serif;
+			font-weight: bold;
+			z-index: 10;
+		}
+		.covering{
+			background: #fff;
+		    width: 58%;
+		    position: absolute;
+		    height: 16%;
+		    top: 42%;
+		    left: 51%;
+		    border-radius: 28px;
+		    z-index: 5;
+		}
+	</style>
+</head>
+<body>
+
+	<header>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-4 purple">
+				<h5 class="display-4 name">Vedha Krishna</h5>
+				<img src="myprofile.jpg" class="my-profle img-thumbnail">
+				<div class="covering"></div>
+				<div id="personal">
+					<h5 class="personal">Personal Details</h5>
+				</div>
+				<div id="professional">
+					<h5 class="professional">Professional Life</h5>
+				</div>
+				<div id="done-projects">
+					<h5 class="done-projects">Projects Accomplished</h5>
+				</div>
+			</div>
+			<div class="col-md-6">
+				
+			</div>
+			<div class="col-md-1"></div>
+		</div>		
+	</header>
+
+<script>
+	
+var container = document.querySelector("#covering");
+ 
+container.addEventListener("click", getClickPosition, false);
+ 
+function getClickPosition(e) {
+    var parentPosition = getPosition(e.currentTarget);
+    var xPosition = e.clientX - parentPosition.x - (theThing.clientWidth / 2);
+    var yPosition = e.clientY - parentPosition.y - (theThing.clientHeight / 2);
+     
+    container.style.left = xPosition + "px";
+    container.style.top = yPosition + "px";
+}
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
