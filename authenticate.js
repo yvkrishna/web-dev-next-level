@@ -3,23 +3,24 @@ var db = mongojs("mongodb://vedha:krishna123@cluster0-shard-00-00-kbuhh.mongodb.
 var express=require("express");
 var app = express();
 var bodyParser=require('body-parser');
-app.use(express.json());
-app.use(bodyParser.urlencoded({extended: true}));
 const { check, validationResult } = require('express-validator');
 var bcrypt = require('bcryptjs');
 var salt = bcrypt.genSaltSync(10);
 var session = require('express-session');
+var passport = require('passport');
 
 app.use(express.static("templates"));
 
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
   secret: 'keyboard cat',
-  resave: false,
   saveUninitialized: true,
-  cookie: { secure: true }
+  resave: false,
 }))
-
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
 
 app.get("/login",function(req,res)
 {
@@ -32,6 +33,12 @@ app.get("/",function(req,res)
 app.get("/register",function(req,res)
 {
 	res.sendFile(__dirname+"/templates/register.html");
+});
+app.get("/my-lab",function(req,res)
+{
+	console.log(req.user.id);
+	console.log(req.isAuthenticated());
+	res.sendFile(__dirname+"/templates/mylab.html");
 });
 
 
@@ -101,21 +108,37 @@ app.post("/register-done",[
 						{
 							console.log(err)
 						}
+					});
+					db.members.find(obj,function(err,data,fields){
+						if(err)
+						{
+							console.log(err);
+						}
 						else
 						{
-							res.sendFile(__dirname+"/templates/mylab.html")
+							if(data.length>0)
+							{ 
+								console.log(data[0]._id);
+								req.login(data[0]._id,function(err){
+									res.redirect('/my-lab');
+								})
+							}
 						}
 					});
 				});
 			});
-		
 	}
 	else
 	{
 		res.send("passwords do not match");
 	}
+});
+passport.serializeUser(function(id, done) {
+  done(null,id);
+});
 
-	
+passport.deserializeUser(function(id, done) {
+    done(null, id);
 });
 
 app.listen(4000,function()
