@@ -5,8 +5,22 @@ var app = express();
 var bodyParser=require('body-parser');
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
+const { check, validationResult } = require('express-validator');
+var bcrypt = require('bcryptjs');
+var salt = bcrypt.genSaltSync(10);
+var session = require('express-session');
 
 app.use(express.static("templates"));
+
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: true }
+}))
+
+
 app.get("/login",function(req,res)
 {
 	res.sendFile(__dirname+"/templates/login.html");
@@ -19,8 +33,17 @@ app.get("/register",function(req,res)
 {
 	res.sendFile(__dirname+"/templates/register.html");
 });
-app.post("/login-done/",function(req,res,next)
+
+
+app.post("/login-done/",[
+	check('username').isEmail(),
+	check('password').isLength({ min: 8 })
+	],function(req,res,next)
 {
+	 const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.send(errors.array());
+  }
 
 	var object={
 		email:req.body.username,
@@ -50,32 +73,41 @@ app.post("/login-done/",function(req,res,next)
 });
 
 
-app.post("/register-done/",function(req,res)
+app.post("/register-done",[
+	check('username').isEmail(),
+	check('password_1').isLength({ min: 8 }),
+	check('password_2').isLength({ min: 8 }),
+	],function(req,res)
 {
+		 const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    res.send(errors.array());
+  }
+
 	if(req.query.password_1==req.query.password_2)
 	{		
-		var m=req.body.number;
-
-			var obj={
-				fname:req.body.firstname,
-				lname:req.body.lastname,
-				email:req.body.username,
-				password:req.body.password_1,
-				mobile:m
-			}
-
-			db.members.insert(obj,function(err,data)
-			{	
-				if(err)
-				{
-					console.log(err)
-				}
-				else
-				{
-					res.sendFile(__dirname+"/templates/mylab.html")
-				}
+		bcrypt.genSalt(10, function(err, salt) {
+   			bcrypt.hash(req.body.password_1, salt, function(err, hash) {
+					var obj={
+						fname:req.body.firstname,
+						lname:req.body.lastname,
+						email:req.body.username,
+						password:hash,
+						mobile:req.body.number
+					}
+					db.members.insert(obj,function(err,data)
+					{	
+						if(err)
+						{
+							console.log(err)
+						}
+						else
+						{
+							res.sendFile(__dirname+"/templates/mylab.html")
+						}
+					});
+				});
 			});
-
 		
 	}
 	else
