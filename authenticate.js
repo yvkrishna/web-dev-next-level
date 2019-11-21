@@ -8,6 +8,13 @@ var bcrypt = require('bcryptjs');
 var salt = bcrypt.genSaltSync(10);
 var session = require('express-session');
 var passport = require('passport');
+var MongoDBStore = require('connect-mongodb-session')(session);
+
+
+var store = new MongoDBStore({
+  uri: 'mongodb://vedha:krishna123@cluster0-shard-00-00-kbuhh.mongodb.net:27017/Hutlabs?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin',
+  collection: 'sessions'
+});
 
 app.use(express.static("templates"));
 
@@ -16,6 +23,7 @@ app.use(session({
   secret: 'keyboard cat',
   saveUninitialized: true,
   resave: false,
+  store: store
 }))
 app.use(passport.initialize());
 app.use(passport.session());
@@ -36,11 +44,14 @@ app.get("/register",function(req,res)
 });
 app.get("/my-lab",function(req,res)
 {
-	console.log(req.user.id);
+	console.log(req.user);
 	console.log(req.isAuthenticated());
 	res.sendFile(__dirname+"/templates/mylab.html");
 });
-
+app.get("/edit-info",function(req,res)
+{
+	res.sendFile(__dirname+"/templates/edit-info.html");
+});
 
 app.post("/login-done/",[
 	check('username').isEmail(),
@@ -67,7 +78,6 @@ app.post("/login-done/",[
 		{
 			if(data.length>0)
 			{ 
-				db.practicals.update({ email:data[0].email},{$set:{status:1}});
 				res.sendFile(__dirname+"/templates/mylab.html");
 			}
 			else
@@ -118,7 +128,6 @@ app.post("/register-done",[
 						{
 							if(data.length>0)
 							{ 
-								console.log(data[0]._id);
 								req.login(data[0]._id,function(err){
 									res.redirect('/my-lab');
 								})
@@ -140,6 +149,16 @@ passport.serializeUser(function(id, done) {
 passport.deserializeUser(function(id, done) {
     done(null, id);
 });
+
+
+function authenticationMiddleware () {  
+	return (req, res, next) => {
+		console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
+
+	    if (req.isAuthenticated()) return next();
+	    res.redirect('/login')
+	}
+} 	
 
 app.listen(4000,function()
 {
