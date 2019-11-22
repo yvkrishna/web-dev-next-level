@@ -1,7 +1,6 @@
 var mongojs = require("mongojs");
 var db = mongojs("mongodb://vedha:krishna123@cluster0-shard-00-00-kbuhh.mongodb.net:27017/Hutlabs?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin",["members"]);
 var express=require("express");
-var app = express();
 var bodyParser=require('body-parser');
 const { check, validationResult } = require('express-validator');
 var bcrypt = require('bcryptjs');
@@ -9,13 +8,14 @@ var salt = bcrypt.genSaltSync(10);
 var session = require('express-session');
 var passport = require('passport');
 var MongoDBStore = require('connect-mongodb-session')(session);
-
+var LocalStrategy = require('passport-local').Strategy;
 
 var store = new MongoDBStore({
   uri: 'mongodb://vedha:krishna123@cluster0-shard-00-00-kbuhh.mongodb.net:27017/Hutlabs?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin',
   collection: 'sessions'
 });
 
+var app = express();
 app.use(express.static("templates"));
 
 app.set('trust proxy', 1) // trust first proxy
@@ -29,6 +29,21 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+      if (err) { return done(err); }
+      if (!user) {
+        return done(null, false, { message: 'Incorrect username.' });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+      return done(null, user);
+    });
+  }
+));
 
 app.get("/login",function(req,res)
 {
@@ -53,42 +68,46 @@ app.get("/edit-info",function(req,res)
 	res.sendFile(__dirname+"/templates/edit-info.html");
 });
 
-app.post("/login-done/",[
-	check('username').isEmail(),
-	check('password').isLength({ min: 8 })
-	],function(req,res,next)
-{
-	 const errors = validationResult(req);
-  if (!errors.isEmpty()) {
-    res.send(errors.array());
-  }
+// app.post("/login-done/",[
+// 	check('username').isEmail(),
+// 	check('password').isLength({ min: 8 })
+// 	],function(req,res,next)
+// {
+// 	 const errors = validationResult(req);
+//   if (!errors.isEmpty()) {
+//     res.send(errors.array());
+//   }
 
-	var object={
-		email:req.body.username,
-		password:req.body.password
-	} 
+// 	var object={
+// 		email:req.body.username,
+// 		password:req.body.password
+// 	} 
 
-	db.members.find(object,function(err,data)
-	{
-		if(err)
-		{
-			console.log(err);
-		}
-		else
-		{
-			if(data.length>0)
-			{ 
-				res.sendFile(__dirname+"/templates/mylab.html");
-			}
-			else
-			{
-				res.send("entered details are wrong")
-			}
-		}
-	});
+// 	db.members.find(object,function(err,data)
+// 	{
+// 		if(err)
+// 		{
+// 			console.log(err);
+// 		}
+// 		else
+// 		{
+// 			if(data.length>0)
+// 			{ 
+// 				res.sendFile(__dirname+"/templates/mylab.html");
+// 			}
+// 			else
+// 			{
+// 				res.send("entered details are wrong")
+// 			}
+// 		}
+// 	});
 
-});
+// });
 
+app.post('/login-done',passport.authenticate('local',{
+	successRedirect : '/my-lab',
+	failureRedirect : '/login'
+}))
 
 app.post("/register-done",[
 	check('username').isEmail(),
@@ -164,5 +183,3 @@ app.listen(4000,function()
 {
 	console.log("SERVER STARTED SUCCESSFULLY................")
 })
-
-
