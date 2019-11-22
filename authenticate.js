@@ -32,16 +32,37 @@ app.use(express.json());
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
+  	var mongojs = require("mongojs");
+	const db = mongojs("mongodb://vedha:krishna123@cluster0-shard-00-00-kbuhh.mongodb.net:27017/Hutlabs?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin",["members"]);
+
+	var object={
+		email:username,
+	} 
+
+	db.members.find(object,function(err,data)
+	{
+		if(err)
+		{
+			console.log(err);
+		}
+		else
+		{
+			if(data.length>0)
+			{ 	
+				console.log(data[0].password.toString());
+				const hash=data[0].password.toString();
+				bcrypt.compare(password, hash, function(err, res) {
+				    if(res === true){
+				    	return done(null, 'success');
+				    }
+				    else{
+				    	return done(null, false);
+				    }
+				});
+			}
+		}
+	});
+
   }
 ));
 
@@ -59,7 +80,7 @@ app.get("/register",function(req,res)
 });
 app.get("/my-lab",function(req,res)
 {
-	console.log(req.user);
+	console.log(req.user+'i am in lab');
 	console.log(req.isAuthenticated());
 	res.sendFile(__dirname+"/templates/mylab.html");
 });
