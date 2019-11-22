@@ -53,7 +53,7 @@ passport.use(new LocalStrategy(
 				const hash=data[0].password.toString();
 				bcrypt.compare(password, hash, function(err, res) {
 				    if(res === true){
-				    	return done(null, 'success');
+				    	return done(null,data[0]._id);
 				    }
 				    else{
 				    	return done(null, false);
@@ -103,6 +103,7 @@ app.get("/edit-info",function(req,res)
 // 		email:req.body.username,
 // 		password:req.body.password
 // 	} 
+
 
 // 	db.members.find(object,function(err,data)
 // 	{
