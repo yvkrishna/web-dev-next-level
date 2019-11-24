@@ -195,3 +195,38 @@
 		</div>
 		</div>
 		</main>
+<script>
+	var new_project = document.getElementById('newproject').addEventListener("click",(event) =>{
+		document.getElementById("forms").style.display="block";
+		for(var pos=93;pos>5;pos--){
+			setTimeout(move(pos),500);
+		}
+		function move(pos){
+				if(pos == 5)
+				{
+					return ;
+				}
+				document.getElementById("forms").style.left=pos.toString()+"%";
+				console.log(pos);
+			}
+		document.getElementById("body_head").style.display="none";
+		document.getElementById("newproject").style.display="none";
+	}) 
+
+	var form_info1=document.getElementById('f1').addEventListener("click",(event) =>{
+		document.getElementById("part-1").style.display="none";
+		document.getElementById("part-3").style.display="none";
+		document.getElementById("part-2").style.display="block";
+	}) 
+	var form_info2=document.getElementById('f2').addEventListener("click",(event) =>{
+		document.getElementById("part-1").style.display="none";
+		document.getElementById("part-2").style.display="none";
+		document.getElementById("part-3").style.display="block";
+	}) 
+
+</script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
