@@ -1,1 +1,197 @@
-mylab
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MY Lab</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>Web Page</title>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/dacf88b734.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+		html,body{
+			padding:0px;
+			width: 100%;
+			height: 100%; 
+		}
+		.top{
+			width:100%;
+			height: 330px;
+			background: linear-gradient(to right, rgb(5, 117, 230), rgb(2, 27, 121));
+			position: relative;
+			z-index: -20;
+			border:none;
+		}
+		.navbar{
+			position: absolute;
+			z-index: 10;
+    		top: 5%;
+    		width: 70%;
+    		box-shadow: 0 20px 14px 0 rgba(0,0,0,0.2);
+		}
+		.navbar-brand,.nav-link{
+			font-size: 25px;
+			letter-spacing: 2px;2
+		}
+		.aisvg{
+			width: 20%;
+		    position: absolute;
+		    z-index: 10;
+		    top: 28%;
+		    left: 0;
+		}
+		.labwork{
+			    width: 20%;
+			    position: absolute;
+			    z-index: 10;
+			    top: 37%;
+			    left: 79%;
+		}
+		.fas{
+			position: absolute;
+		    top: 46%;
+		    left: 46%;
+		}
+		.card{
+			width: 16rem;
+    		height: 230px;
+    		box-shadow: 0 3px 5px 0 rgba(0,0,0,0.2); 
+		}
+		.txt{
+			position: absolute;
+		    top: 74%;
+		    left: 33%;
+		}
+		.addsvg{
+			width: 166%;
+		    position: absolute;
+		    left: -73%;
+		}
+		#forms{
+			position: relative;
+			display: none;
+		}
+		#part-2,#part-3{
+			display: none;
+		}
+		@media (max-width: 768px){
+			.navbar{
+				width:90%;
+				top: 20%
+				}
+			.top{
+				height: 200px;
+			}
+			.aisvg , .labwork{
+				display: none;
+			}
+			.projects{
+				margin-left: 25px;
+			}
+			.card{
+				height: 54px;
+			}
+			.txt{
+			    top: 46%;
+			    left: 45%;
+			    font-size: 18px;
+			}
+			.fas{
+			    top: 29%;
+			    left: 31%;
+			}
+			.addsvg{
+				display: none;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header id="body_head">
+		<button class="top">
+			<img class="aisvg" src="AI.svg">
+			<img class="labwork" src="Lab-Work.svg">
+		</button>
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			  <a class="navbar-brand" href="#">My Workspace</a>
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav ml-lg-auto">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="/edit-info">My Account</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#resume">My Resume</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#lab">Lab</a>
+			      </li>
+			    </ul>
+			  </div>
+			</div>
+			</nav>
+		</div>
+		</header>
+		<main id="body_main">
+		<div class="container">
+			<div id="newproject">
+			<h3 style="margin-top: 7%;margin-left: 5px;">Your Projects</h3>
+			<br>
+			<div class="card">
+			  <div class="card-body">
+			    <h5 class="card-title"><i class="fas fa-plus"></i></h5>
+			    <h6 class="card-subtitle mb-2 txt text-muted">New Project</h6>
+			  </div>
+			</div>
+			<br>
+			<br>
+			</div>
+		</div>
+		<div id="forms">
+			<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-9">
+			<form action="/new-project" method="POST">
+				<div id="part-1">
+				<div class="form-group">
+					    <label for="exampleInputEmail1">Project Name</label>
+					    <input type="text" class="form-control" id="exampleInputEmail1 abc" aria-describedby="emailHelp" placeholder="Project Name" name="pname"
+					    style="width: 40%;">
+				</div>
+				<div class="form-group">
+					    <label for="exampleInputEmail1">Number Of People</label>
+					    <input type="text" class="form-control" id="exampleInputEmail1 abc" aria-describedby="emailHelp" placeholder="Number Of people" 
+					    name="no_of_people"
+					    style="width: 40%;">
+				</div>
+				<button type="button" id="f1" class="btn btn-outline-info">Continue</button>
+				</div>
+				<div id="part-2">
+					<div class="form-group">
+					    <label for="exampleInputEmail1">person : 1</label>
+					    <input type="text" class="form-control" id="exampleInputEmail1 abc" aria-describedby="emailHelp" placeholder="person Name" name="pname"
+					    style="width: 40%;">
+					</div>
+					<button type="button" id="f2" class="btn btn-outline-info">Continue</button>
+				</div>
+				<div id="part-3">
+					<label>About Project</label>
+					<textarea class="form-control" id="a" aria-label="With textarea" 
+					placeholder="About Project" name="about_project"></textarea>
+					<button type="button" id="f3" class="btn btn-outline-success">submit</button>
+				</div>
+			</form>
+			</div>
+			<div class="col-md-2">
+				<img class="addsvg" src="add.svg">
+			</div>
+		</div>
+		</div>
+		</main>
