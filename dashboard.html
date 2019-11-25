@@ -4,6 +4,9 @@
 	<title></title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/dacf88b734.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<style type="text/css"> 
 		.abc{
 			width: 100%;
@@ -29,24 +32,53 @@
         <div class="col-md-4">
             <ul>
                 <li>
-                    issues to be solved
+                    Issues to be solved :
                 </li>
                 <li>
-                    solved issues
+                    Solved Issues :
                 </li>
                 <li>
-                    milestones reached
+                    Achieved Milestones :
                 </li>
             </ul>
         </div>
-        <div class="row">
-        <div class="col-md-4">
-            <h3>Concepts Involved in it</h3>
-            <canvas id="mychart2" style="height: 301px;display: block;position: absolute;
-            width: 118%"></canvas> <!-- pie chart depecting all the concepts involved in it and showing areas to be covered before solving it -->
         </div>
-        <div class="col-md-4"></div>
-    </div> 
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <h3>Concepts Involved in the project</h3>
+                <canvas id="mychart2" style="height: 301px;display: block;position: absolute;
+                width: 118%"></canvas> <!-- pie chart depecting all the concepts involved in it and showing areas to be covered before solving it -->
+            </div>
+            <div class="col-md-8">
+                <h4>work designation</h4>
+                <!-- code to assign works for other teammates and must be given by the team lead -->
+            </div>
+        </div> 
+        <h3>Components requried</h3>
+        <div class="row">
+            <br>
+            <div class="col-md-4">
+                <div class="form">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Add components</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Add components">
+                        <!-- code to set the components in the database and retrieve them -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="list">
+                    <!-- code to list all the requried components and make a button with success on successful buying the product -->
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- code to list all the components broght -->
+            </div>
+        </div>
 </div>
 
 
