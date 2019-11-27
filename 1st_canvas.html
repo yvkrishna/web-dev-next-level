@@ -8,6 +8,15 @@
 	<script>
 		var c = document.querySelector("#c");
 		var ctx = c.getContext("2d");
+		var image = new Image();
+		image.onload= function(data,err){
+			if (err) console.log("error occoured while loading");
+			else {
+				console.log("loaded the given image");
+				ctx.drawImage(image,0,0,c.width,c.height);
+			}
+		}
+		image.src="https://assets.materialup.com/uploads/8527d56c-4787-4773-bb4c-4e90b433e60a/preview.jpg";
 	</script>
 </body>
 </html>
