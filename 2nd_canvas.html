@@ -37,11 +37,15 @@
 // 		ctx.strokeText("Hello All !!!",100,110);
 // 		ctx.fillText("Hello All !!!",100,110);		
 
-		ctx.strokeStyle="rgba(0,0,255,0.5)";
-		//ctx.fillStyle="rgba(0,0,255,0.5)";
-		ctx.arc(300,300,30,0,Math.PI *2,false);
-		ctx.stroke();
-		//ctx.fill();
+		for(var i=0;i<3;i++){
+			var x=Math.random()*window.innerWidth;
+			var y=Math.random()*window.innerHeight;
+			ctx.strokeStyle="rgba(0,0,255,0.5)";
+			//ctx.fillStyle="rgba(0,0,255,0.5)";
+			ctx.arc(x,y,30,0,Math.PI *2,false);
+			ctx.stroke();
+			//ctx.fill();
+		}
 	</script>
 </body>
 </html>
