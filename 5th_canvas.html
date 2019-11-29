@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<canvas id="c" width="500" height="500"></canvas>
+	<script>
+		var c = document.querySelector("#c");
+		var ctx = c.getContext("2d");
+		
+			ctx.strokeStyle="rgba(0,0,255,0.5)";
+			//ctx.fillStyle="rgba(0,0,255,0.5)";
+			ctx.arc(200,200,30,0,Math.PI *2,false);
+			ctx.stroke();
+			//ctx.fill();
+			function animate(){
+				requestAnimationFrame(animate);
+			}
+			animate();
+	</script>
+</body>
+</html>
