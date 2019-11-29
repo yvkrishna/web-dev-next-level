@@ -4,36 +4,51 @@
 	<title></title>
 </head>
 <body>
-	<canvas id="c" width="500" height="500"></canvas>
+	<canvas id="c" width="700" height="700"></canvas>
 	<script>
 		var c = document.querySelector("#c");
-		var ctx = c.getContext("2d");
-		
-			var x=Math.random() * innerWidth;
-			var dx=4;
-			var radius=30;
-			var y=Math.random() * innerHeight;
-			var dy=4;
-			function animate(){
-				ctx.clearRect(0,0,700,700);
-				requestAnimationFrame(animate);
+		var ctx = c.getContext("2d");		
+
+		function Circle(){
+			this.x=Math.random() * innerWidth;
+			this.y=Math.random() * innerHeight;
+			this.dx=(Math.random()-0.5)*120;
+			this.dy=(Math.random()-0.5)*120;
+			this.radius=30;
+			this.draw=function(){
 				ctx.strokeStyle="rgba(0,0,255,0.5)";
-				//ctx.fillStyle="rgba(0,0,255,0.5)";
+				// ctx.fillStyle="rgba(0,0,255,0.5)";
 				ctx.beginPath();
-				ctx.arc(x,y,radius,0,Math.PI *2,false);
+				ctx.arc(this.x,this.y,this.radius,0,Math.PI *2,false);
 				ctx.stroke();
 				//ctx.fill();
-				if(x+radius>700 || x-radius<0)
-				{
-					dx=-1*dx;
-				}
-				if(y+radius>700 || y-radius<0){
-					dy=-dy;
-				}
-				x+=dx;
-				y+=dy;
+				
 			}
-			animate();
+			this.animate=function(){
+				this.draw();
+				if(this.x+this.radius>700 || this.x-this.radius<0)
+				{
+					this.dx=-1*this.dx;
+				}
+				if(this.y+this.radius>700 || this.y-this.radius<0){
+					this.dy=-this.dy;
+				}
+				this.x+=this.dx;
+				this.y+=this.dy;
+				}
+			
+		}
+
+		var circle = new Circle();
+
+		function update(){
+			requestAnimationFrame(update);
+			ctx.clearRect(0,0,700,700);
+			circle.animate();
+		}
+
+		update();
+			
 	</script>
 </body>
 </html>
