@@ -1,51 +1,109 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>my second canvas</title>
+	<style>
+		body{
+			margin:0;
+			background: #000;
+		}
+		canvas{
+			position: relative;
+		}
+		div{
+			position: absolute;
+			top:5%;
+			left: 42%;
+		}
+		div h3{
+			color: #fff;
+			font-family: "B612";
+			font-size: 60px;
+		}
+	</style>
+	<link href="https://fonts.googleapis.com/css?family=B612&display=swap" rel="stylesheet">
 </head>
 <body>
-	<canvas id="c" width="500" height="500"></canvas>
+	<canvas width="1530" height="700"></canvas>
+	<div class="welcome">
+		<h3>Welcome</h3>
+	</div>
 	<script>
-		var c = document.querySelector("#c");
-		var ctx = c.getContext("2d");
-		// ctx.fillStyle="rgba(225,0,0,0.5)";
-		// ctx.fillRect(100,100,100,100);
-		// ctx.fillStyle="rgba(0,255,0,0.5)";
-		// ctx.fillRect(400,100,100,100);
-		// ctx.fillStyle="rgba(0,0,255,0.5)";
-		// ctx.fillRect(300,100,100,100);
-		// ctx.strokeRect(50,50,50,50);
-		// ctx.clearRect(0, 0,90, 70);
-		
-		// ctx.beginPath();
-		// ctx.moveTo(10,10);
-		// ctx.lineTo(50,50);
-		// ctx.lineTo(50,10);
-		// ctx.lineTo(10,10);
-		// // ctx.fill()
-		// ctx.strokeStyle="#fa34a3";
-		// ctx.stroke();
-		
-		// 1st quiz
-// 		ctx.strokeRect(50,50,100,100);
-// 		ctx.beginPath();
-// 		ctx.moveTo(75,75);
-// 		ctx.lineTo(125,125);
-// 		ctx.lineTo(125,75);
-// 		ctx.lineTo(75,75);
-// 		ctx.fill()
-// 		ctx.strokeText("Hello All !!!",100,110);
-// 		ctx.fillText("Hello All !!!",100,110);		
+		var canvas =document.querySelector("canvas");
+		var c=canvas.getContext("2d");
 
-		for(var i=0;i<3;i++){
-			var x=Math.random()*window.innerWidth;
-			var y=Math.random()*window.innerHeight;
-			ctx.strokeStyle="rgba(0,0,255,0.5)";
-			//ctx.fillStyle="rgba(0,0,255,0.5)";
-			ctx.arc(x,y,30,0,Math.PI *2,false);
-			ctx.stroke();
-			//ctx.fill();
+		c.width = window.innerWidth;
+		c.height = window.innerHeight;
+
+		// c.fillStyle="rgba(0,255,0,0.5)";
+		// c.fillRect(0,450,100,200);	
+		// c.fill();
+		var colorarray=[
+		"#EEFF6B",
+		"#E8AD61",
+		"#FF78AC",
+		"#6C61E8",
+		"#46FFE3",
+		"#0DFF40",
+		"#6EFF00",
+		"#B7E80C",
+		"#FFF50D",
+		"#52B8CC",
+		"#118399",
+		"#80FFCD",
+		"#FF5F5B",
+		"#CC0057",
+		];
+
+		function Rectangle(x){
+			this.x=x;
+			this.y=590;
+			this.dy=Math.floor(Math.random() * 2) + 1 
+			var flag=0;
+			this.color=colorarray[Math.floor(Math.random()*colorarray.length)];
+			this.draw=function(){
+				c.beginPath();
+				c.fillStyle=this.color;
+				c.fillRect(this.x,this.y,100,500);
+				c.shadowBlur = 60;
+				c.shadowColor = this.color;
+				c.fill();
+			}
+			this.animate=function(){
+				
+				if(this.y>300 && flag==0){
+					this.y=this.y-this.dy;
+					if(this.y==300){
+						flag=1;
+					}
+					this.draw();
+				}
+				if(flag==1){
+					this.y=this.y+this.dy;
+					if(this.y==590){
+						flag=0;
+					}
+					this.draw();
+				}
+			}
 		}
+
+
+		var rectanglearray=[];
+		for(var i=0;i<Math.floor(window.innerWidth/100);i++){
+			rectanglearray.push(new Rectangle(i*100));
+		}
+
+		function update(){
+			requestAnimationFrame(update);
+			c.clearRect(0,0,1530,700);
+			for(var i=0;i<rectanglearray.length;i++){
+				rectanglearray[i].animate();
+			}
+		}
+
+		update();
+
 	</script>
 </body>
 </html>
