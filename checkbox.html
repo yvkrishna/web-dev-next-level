@@ -40,7 +40,7 @@
 			cursor: pointer;
 
 		}
-		.list label[type="checkbox"]{
+		.list input[type="checkbox"]{
 			-webkit-appearance:none;
 		}
 		.list i{
@@ -51,10 +51,38 @@
 			height: 25px;
 			border: 2px solid #fff;
 		}
-		.list label[type="checkbox"]:checked ~ i{
+		.list input[type="checkbox"]:checked ~ i{
 			top: 1px;
 			border-top: none;
-			
+			border-right: none;
+			height: 15px;
+			width: 25px;
+			transform: rotate(-45deg);
+		}
+		.list span{
+			position: relative;
+			left: 40px;
+			transition: 0.5s;
+		}
+		.list span:before{
+			content: '';
+			position: absolute;
+			top: 50%;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background: #fff;
+			transform: translateY(-50%) scaleX(0);
+			transform-origin: right;
+			transition: transform 0.5s; 
+		}
+		.list input[type="checkbox"]:checked ~ span:before{
+			transform: translateY(-50%) scaleX(1);
+			transform-origin: left;
+			transition: transform 0.5s;
+		}
+		.list input[type="checkbox"]:checked ~ span{
+			color: #154e6b;
 		}
 	</style>
 </head>
