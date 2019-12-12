@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Checkbox</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: consolas;
+			box-sizing: border-box;
+		}
+		body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			background: #001925;
+		}
+		.list{
+			padding: 30px 75px 10px 30px;
+			position: relative;
+			background: #042b3e;
+			border-top: 50ox solid #03a9f4;
+
+		}
+		.list h2{
+			color: #fff;
+			font-size: 30px;
+			padding: 10px 0;
+			margin-left: 10px;
+			display: inline-block;
+			border-bottom: 4px solid #fff;
+		}
+		.list label{
+			position: relative;
+			display: block;
+			margin: 40px 0;
+			color: #fff;
+			font-size: 24px;
+			cursor: pointer;
+
+		}
+		.list label[type="checkbox"]{
+			-webkit-appearance:none;
+		}
+		.list i{
+			position: absolute;
+			top: 2px;
+			display: inline-block;
+			width: 25px;
+			height: 25px;
+			border: 2px solid #fff;
+		}
+		.list label[type="checkbox"]:checked ~ i{
+			top: 1px;
+			border-top: none;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="list">
+		<h2>Css CheckBox</h2>
+		<label>
+			<input type="checkbox" name="">
+			<i></i>
+			<span>Lorem Ipsum is simply dummy text</span>
+		</label>
+		<label>
+			<input type="checkbox" name="">
+			<i></i>
+			<span>dummy text of the printing</span>
+		</label>
+		<label>
+			<input type="checkbox" name="">
+			<i></i>
+			<span>typesetting industry</span>
+		</label>
+		<label>
+			<input type="checkbox" name="">
+			<i></i>
+			<span>Lorem Ipsum has been</span>
+		</label>
+	</div>
+</body>
+</html>
