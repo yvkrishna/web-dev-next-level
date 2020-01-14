@@ -2,12 +2,77 @@
 <html>
 <head>
 	<title>web sockets</title>
+	<style>
+		#vedha-chat{
+			width: 50%;
+			height: 400px;
+			position: absolute;
+		    left: 25%;
+		    top: 10%;
+		    box-shadow: 2px 2px 8px 4px orange;
+		}
+		#chat-window{
+			width: 92%;
+			height: 300px;
+			position: absolute;
+			top: 6%;
+			left:4%;
+			box-shadow: 2px 2px 12px 6px cadetblue;
+		}
+		#handle,#message{
+			top: 86%;
+			position: absolute;
+		    width: 32%;
+		    height: 36px;
+		    padding-left: 4%;
+		}
+		#handle{
+		    left: 2%;
+		}
+		#message{
+			left: 40%;
+		}
+		#send{
+			top: 86%;
+			position: absolute;
+			left: 80%;
+			width: 15%;
+		    height: 41px;
+		    background: forestgreen;
+		    border: none;
+		    color: #fff;
+		    border-radius: 9%;
+		}
+	</style>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
 </head>
 <body>
-	hey hello
+	<div id="vedha-chat">
+		<div id="chat-window">
+			<div id="output"></div>
+		</div>
+		<input id="handle" type="text" placeholder="Enter a handle" />
+		<input id="message" type="text" placeholder="Enter a message" />
+		<button id="send">Send</button>
+	</div>
 	<script>
-		var socker=io.connect('http://localhost:4000/socketweb1.html')
+		var socket=io.connect('http://localhost:4000/socketweb1.html');
+		var message=document.getElementById("message");
+		var handle=document.getElementById("handle");
+		var send=document.getElementById("send");
+		var output=document.getElementById("output");
+
+		send.addEventListener('click',function(event){
+			socket.emit('chat',{
+				message:message.value,
+				handle:handle.value
+			})
+		})
+
+		socket.on('chat',function(data){
+			output.innerHTML += '<p><strong>'+data.handle+' :</strong>'+data.message+'</p>';
+			console.log("hello123");
+		})
 	</script>
 </body>
 </html>
